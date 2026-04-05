@@ -411,6 +411,7 @@ async function runQuery(
         'NotebookEdit',
         'mcp__nanoclaw__*',
         'mcp__gmail__*',
+        'mcp__bugsink__*',
       ],
       env: sdkEnv,
       permissionMode: 'bypassPermissions',
@@ -429,6 +430,14 @@ async function runQuery(
         gmail: {
           command: 'npx',
           args: ['-y', '@gongrzhe/server-gmail-autoauth-mcp'],
+        },
+        bugsink: {
+          command: 'npx',
+          args: ['-y', 'bugsink-mcp-server'],
+          env: {
+            BUGSINK_URL: 'https://bug.sols.mk',
+            BUGSINK_TOKEN: 'onecli-injected',
+          },
         },
       },
       hooks: {
